@@ -16,15 +16,33 @@ public class UnitTest1
         Assert.Equal("otot", sortie);
     }
 
-    //[Fact(DisplayName = "QUAND on entre un palindrome " +
-    //                    "ALORS il est renvoyé " +
-    //                    "ET \"Bien dit\" est envoyé")]
-    //public void PalindromeTest()
-    //{
-    //    // QUAND on entre un palindrome
+    [Fact(DisplayName = "QUAND on entre un palindrome " +
+                        "ALORS il est renvoyé " +
+                        "ET \"Bien dit\" est envoyé")]
+    public void PalindromeTest()
+    {
+        // QUAND on entre un palindrome
 
-    //    // ALORS il est renvoyé
+        // ALORS il est renvoyé
 
-    //    // ET "Bien dit" est envoyé
-    //}
+        // ET "Bien dit" est envoyé
+    }
+
+    [Fact(DisplayName = "QUAND l'app démarre " +
+                        "ALORS \"Bonjour\" est envoyé ")]
+    public void DémarrageTest()
+    {
+        // QUAND l'app démarre
+
+        // ALORS "Bonjour" est envoyé
+    }
+
+    [Fact(DisplayName = "QUAND l'app se ferme " +
+                        "ALORS \"Au revoir\" est envoyé ")]
+    public void FermetureTest()
+    {
+        // QUAND l'app se ferme
+
+        // ALORS "Au revoir" est envoyé
+    }
 }
