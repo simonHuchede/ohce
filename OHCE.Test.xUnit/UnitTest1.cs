@@ -13,7 +13,7 @@ public class UnitTest1
         var sortie = Ohce.Palindrome("toto");
 
         // ALORS elle est renvoyée en miroir
-        Assert.Equal("otot", sortie);
+        Assert.Contains("otot", sortie);
     }
 
     [Fact(DisplayName = "QUAND on entre un palindrome " +
@@ -28,27 +28,35 @@ public class UnitTest1
         var sortie = Ohce.Palindrome(palindrome);
 
         // ALORS il est renvoyé
-        Assert.StartsWith(palindrome, sortie);
-
         // ET "Bien dit" est envoyé
-        Assert.EndsWith(Expressions.BienDit, sortie);
+        Assert.Contains(
+            palindrome + Expressions.BienDit, 
+            sortie);
     }
 
     [Fact(DisplayName = "QUAND l'app démarre " +
-                        "ALORS \"Bonjour\" est envoyé ")]
+                        $"ALORS \"{Expressions.Bonjour}\" est envoyé ")]
     public void DémarrageTest()
     {
+        var ohce = new Ohce();
+
         // QUAND l'app démarre
+        var sortie = Ohce.Palindrome(string.Empty);
 
         // ALORS "Bonjour" est envoyé
+        Assert.StartsWith(Expressions.Bonjour, sortie);
     }
 
     [Fact(DisplayName = "QUAND l'app se ferme " +
-                        "ALORS \"Au revoir\" est envoyé ")]
+                        $"ALORS \"{Expressions.AuRevoir}\" est envoyé ")]
     public void FermetureTest()
     {
-        // QUAND l'app se ferme
+        var ohce = new Ohce();
+
+        // QUAND l'app démarre
+        var sortie = Ohce.Palindrome(string.Empty);
 
         // ALORS "Au revoir" est envoyé
+        Assert.EndsWith(Expressions.AuRevoir, sortie);
     }
 }
