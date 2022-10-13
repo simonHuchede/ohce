@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OHCE
+﻿namespace OHCE
 {
     public class Ohce
     {
-        public string TraiterChaîne(string toto)
+        public static string Palindrome(string input)
         {
-            return new string(toto.Reverse().ToArray());
+            return new string(input.Reverse().ToArray());
         }
     }
 }
