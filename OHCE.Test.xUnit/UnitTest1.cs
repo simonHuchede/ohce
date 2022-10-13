@@ -18,14 +18,20 @@ public class UnitTest1
 
     [Fact(DisplayName = "QUAND on entre un palindrome " +
                         "ALORS il est renvoyé " +
-                        "ET \"Bien dit\" est envoyé")]
+                        $"ET \"{Expressions.BienDit}\" est envoyé à la suite")]
     public void PalindromeTest()
     {
+        var ohce = new Ohce();
+
         // QUAND on entre un palindrome
+        const string palindrome = "kayak";
+        var sortie = Ohce.Palindrome(palindrome);
 
         // ALORS il est renvoyé
+        Assert.StartsWith(palindrome, sortie);
 
         // ET "Bien dit" est envoyé
+        Assert.EndsWith(Expressions.BienDit, sortie);
     }
 
     [Fact(DisplayName = "QUAND l'app démarre " +
