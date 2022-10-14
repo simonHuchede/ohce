@@ -27,7 +27,7 @@ public class UnitTest1
     public void PalindromeTest(string bienDit)
     {
         // ETANT DONNE un utilisateur parlant <langue>
-        var ohce = new Ohce(new LangueMock(bienDit));
+        var ohce = new Ohce(new LangueMock { BienDit = bienDit });
 
         // QUAND on entre un palindrome
         const string palindrome = "kayak";
@@ -40,35 +40,35 @@ public class UnitTest1
             sortie);
     }
 
-    [Theory(DisplayName = "ETANT DONNE un utilisateur parlant <langue>" +
+    [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
                           "QUAND l'app démarre " +
-                          "ALORS <bonjour> en <langue> est envoyé ")]
-    [InlineData("fr_FR", "Bonjour")]
-    [InlineData("en_GB", "Hello")]
-    public void DémarrageTest(string langue, string bonjour)
+                          "ALORS <bonjour> de cette langue est envoyé")]
+    [InlineData("Bonjour")]
+    [InlineData("Hello")]
+    public void DémarrageTest(string bonjour)
     {
-        var ohce = new Ohce(new LangueStub());
+        var ohce = new Ohce(new LangueMock { Bonjour = bonjour });
 
         // QUAND l'app démarre
         var sortie = ohce.Palindrome(string.Empty);
 
         // ALORS "Bonjour" est envoyé
-        Assert.StartsWith(Expressions.Bonjour, sortie);
+        Assert.StartsWith(bonjour, sortie);
     }
 
-    [Theory(DisplayName = "ETANT DONNE un utilisateur parlant <langue>" +
+    [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
                           "QUAND l'app se ferme " +
-                          "ALORS <auRevoir> en <langue> est envoyé ")]
-    [InlineData("fr_FR", "Au revoir !")]
-    [InlineData("en_GB", "Goodbye !")]
-    public void FermetureTest(string langue, string auRevoir)
+                          "ALORS <auRevoir> dans cette langue est envoyé")]
+    [InlineData("Au revoir")]
+    [InlineData("Goodbye")]
+    public void FermetureTest(string auRevoir)
     {
-        var ohce = new Ohce(new LangueStub());
+        var ohce = new Ohce(new LangueMock { AuRevoir = auRevoir });
 
         // QUAND l'app démarre
         var sortie = ohce.Palindrome(string.Empty);
 
         // ALORS "Au revoir" est envoyé
-        Assert.EndsWith(Expressions.AuRevoir, sortie);
+        Assert.EndsWith(auRevoir, sortie);
     }
 }
