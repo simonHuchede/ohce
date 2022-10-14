@@ -1,4 +1,5 @@
 using OHCE.Langues;
+using OHCE.Test.xUnit.Utilities;
 using OHCE.Test.xUnit.Utilities.Builders;
 
 namespace OHCE.Test.xUnit;
@@ -23,7 +24,7 @@ public class UnitTest1
                           "QUAND on entre un palindrome " +
                           "ALORS il est renvoyé " +
                           "ET le <bienDit> de cette langue est envoyé")]
-    [MemberData(nameof(Langues))]
+    [MemberData(nameof(LanguesSeules))]
     public void PalindromeTest(ILangue langue)
     {
         // ETANT DONNE un utilisateur parlant <langue>
@@ -42,25 +43,18 @@ public class UnitTest1
             sortie);
     }
 
-    public static IEnumerable<object[]> Langues => new List<object[]>
+    private static readonly IEnumerable<ILangue> Langues = new ILangue[] { new LangueAnglaise(), new LangueFrançaise() };
+    private static readonly IEnumerable<PériodeJournée> Périodes = new PériodeJournée[]
     {
-        new object[]{ new LangueAnglaise() },
-        new object[]{ new LangueFrançaise() },
+        PériodeJournée.Matin, 
+        PériodeJournée.AprèsMidi, 
+        PériodeJournée.Soir, 
+        PériodeJournée.Nuit, 
+        PériodeJournée.Defaut
     };
 
-    public static IEnumerable<object[]> LanguesEtPériodes => new List<object[]>
-    {
-        new object[] { new LangueAnglaise(), PériodeJournée.Matin },
-        new object[] { new LangueFrançaise(), PériodeJournée.Matin },
-        new object[] { new LangueAnglaise(), PériodeJournée.AprèsMidi },
-        new object[] { new LangueFrançaise(), PériodeJournée.AprèsMidi },
-        new object[] { new LangueAnglaise(), PériodeJournée.Soir },
-        new object[] { new LangueFrançaise(), PériodeJournée.Soir },
-        new object[] { new LangueAnglaise(), PériodeJournée.Nuit },
-        new object[] { new LangueFrançaise(), PériodeJournée.Nuit },
-        new object[] { new LangueAnglaise(), PériodeJournée.Defaut },
-        new object[] { new LangueFrançaise(), PériodeJournée.Defaut },
-    };
+    public static IEnumerable<object[]> LanguesSeules => new CartesianData(Langues);
+    public static IEnumerable<object[]> LanguesEtPériodes => new CartesianData(Langues, Périodes);
 
     [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
                           "ET que la période de la journée est <période>" +
@@ -86,7 +80,7 @@ public class UnitTest1
     [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
                           "QUAND l'app se ferme " +
                           "ALORS <auRevoir> dans cette langue est envoyé")]
-    [MemberData(nameof(Langues))]
+    [MemberData(nameof(LanguesSeules))]
     public void FermetureTest(ILangue langue)
     {
         // ETANT DONNE un utilisateur parlant une langue
