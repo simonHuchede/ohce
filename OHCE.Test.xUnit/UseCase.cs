@@ -4,7 +4,7 @@ using OHCE.Test.xUnit.Utilities.Builders;
 
 namespace OHCE.Test.xUnit;
 
-public class UnitTest1
+public class UseCase
 {
     [Fact(DisplayName = 
         "QUAND on entre une chaîne de caractères " +
