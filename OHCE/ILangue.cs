@@ -3,7 +3,7 @@
     public interface ILangue
     {
         string BienDit { get; }
-        string Bonjour { get; }
+        string DireBonjour(PériodeJournée période);
         string AuRevoir { get; }
     }
 }
