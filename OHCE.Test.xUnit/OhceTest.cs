@@ -4,7 +4,7 @@ using OHCE.Test.xUnit.Utilities.Builders;
 
 namespace OHCE.Test.xUnit;
 
-public class UseCase
+public class OhceTest
 {
     [Fact(DisplayName = 
         "QUAND on entre une chaîne de caractères " +
@@ -43,7 +43,12 @@ public class UseCase
             sortie);
     }
 
-    private static readonly IEnumerable<ILangue> Langues = new ILangue[] { new LangueAnglaise(), new LangueFrançaise() };
+    private static readonly IEnumerable<ILangue> Langues = new ILangue[]
+    {
+        new LangueAnglaise(), 
+        new LangueFrançaise()
+    };
+
     private static readonly IEnumerable<PériodeJournée> Périodes = new PériodeJournée[]
     {
         PériodeJournée.Matin, 
