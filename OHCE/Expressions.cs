@@ -14,13 +14,19 @@ namespace OHCE
             public const string Bonjour = "Bonjour";
             public const string AuRevoir = "Au revoir";
             public const string Bonsoir = "Bonsoir";
+            public const string BonAprèsMidi = "Bon après midi";
+            public const string BonneNuit = "Bonne nuit";
         }
 
         public static class English
         {
-            public const string BienDit = "Well said";
-            public const string Bonjour = "Hello";
-            public const string AuRevoir = "Goodbye";
+            public const string WellSaid = "Well said";
+            public const string Hello = "Hello";
+            public const string GoodBye = "Goodbye";
+            public const string GoodMorning = "Good morning";
+            public const string GoodAfternoon = "Good afternoon";
+            public const string GoodEvening = "Good evening";
+            public const string GoodNight = "Good night";
         }
     }
 }

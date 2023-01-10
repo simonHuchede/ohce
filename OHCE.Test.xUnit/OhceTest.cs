@@ -39,7 +39,7 @@ public class OhceTest
         // ALORS il est renvoyé
         // ET <bienDit> en <langue> est envoyé
         Assert.Contains(
-            palindrome + langue.BienDit, 
+            palindrome +" \n" + langue.BienDit, 
             sortie);
     }
 
@@ -76,7 +76,7 @@ public class OhceTest
             .Build();
 
         // QUAND l'app démarre
-        var sortie = ohce.Palindrome(string.Empty);
+        var sortie = ohce.Saluer();
 
         // ALORS <bonjour> de cette langue à cette période est envoyé
         Assert.StartsWith(langue.DireBonjour(période), sortie);

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OHCE", "OHCE\OHCE.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OHCE.Test.xUnit", "OHCE.Test.xUnit\OHCE.Test.xUnit.csproj", "{9D675716-2126-47BC-941B-6824FD58AB90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OHCE.Console", "OHCE.Console\OHCE.Console.csproj", "{89F98E38-34D8-49CF-A403-54A53BB6449E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OHCE.Console", "OHCE.Console\OHCE.Console.csproj", "{89F98E38-34D8-49CF-A403-54A53BB6449E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
